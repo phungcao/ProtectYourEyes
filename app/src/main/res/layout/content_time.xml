@@ -7,5 +7,52 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".Time"
     tools:showIn="@layout/activity_time">
+    <SeekBar
+        android:id="@+id/sbShort"
+        android:layout_width="254dp"
+        android:layout_height="33dp"
+        android:layout_marginBottom="92dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/btSet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:id="@+id/TextView1"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="62dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="45dp"
+        android:text="Time:"
+        app:layout_constraintBottom_toTopOf="@+id/sbShort"
+        app:layout_constraintEnd_toStartOf="@+id/stime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/stime"
+        android:layout_width="58dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="26dp"
+        android:layout_marginEnd="163dp"
+        android:layout_marginTop="46dp"
+        app:layout_constraintBottom_toTopOf="@+id/sbShort"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btSet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="220dp"
+        android:layout_marginEnd="195dp"
+        android:layout_marginStart="101dp"
+        android:text="Set"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>
