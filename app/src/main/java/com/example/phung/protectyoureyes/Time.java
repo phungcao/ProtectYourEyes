@@ -57,7 +57,16 @@ public class Time extends AppCompatActivity {
             }
             @Override
             public void onFinish() {
-
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Time.this);
+                alertDialogBuilder.setTitle("Nhắc nhở !!! ");
+                alertDialogBuilder.setMessage(" Bạn cần nghỉ ngơi.")
+                        .setCancelable(false)
+                        .setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.dismiss();
+                            }
+                        });
+                alertDialogBuilder.show();
             }
         }.start();
 
