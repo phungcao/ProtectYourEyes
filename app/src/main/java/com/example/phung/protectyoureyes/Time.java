@@ -30,14 +30,30 @@ public class Time extends AppCompatActivity {
         set = (Button)findViewById(R.id.btSet);
         setSupportActionBar(toolbar);
         stime.setText( ngan.getProgress() +" "+ "phút");
-
         set.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startTimer(ngan.getProgress() * 1000);
             }
         });
+        ngan.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            int p = 0;
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progresValue, boolean fromUser) {
+                seekBar.setMax(3600);
+                if (fromUser ) {
+                    p = progresValue;
+                }
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
 
+            }
+            @Override
+            public void onStopTrackingTouch(final SeekBar seekBar) {
+                stime.setText( ngan.getProgress()/60 + " phút "+ ngan.getProgress()%60 + " giây");
+            }
+        });
     }
     private void startTimer(final long milisecods) {
         if (countDownTimer != null) {
