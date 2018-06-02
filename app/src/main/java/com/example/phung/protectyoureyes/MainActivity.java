@@ -11,14 +11,20 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.TextView;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity {
     Button change;
+    TextView text;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        text = (TextView)findViewById(R.id.txt);
         change = (Button) findViewById(R.id.btOn);
         final Intent intent = new Intent(this,Time.class);
         change.setOnClickListener(new View.OnClickListener() {
@@ -27,6 +33,19 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        try {
+            InputStream in = getAssets().open("dulieu.txt");
+            int size =in.available();
+            byte[] buffer = new byte[size];
+            in.read(buffer);
+            String chuoi = new String(buffer);
+            text.setText(chuoi);
+            in.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
